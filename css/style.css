@@ -5,10 +5,14 @@
 }
 
 body {
-    margin: 2%;
+    margin: 1%;
     justify-content: center;
     overflow: hidden;
 }
+/*.block {*/
+/*    border:1px solid #333;*/
+/*    margin-bottom:5px;*/
+/*}*/
 
 .box-wrapper {
     height: 95vh;
@@ -19,8 +23,8 @@ body {
 }
 
 #box2 {
-    padding: 8px;
-    border: solid 1px blue
+    padding: 10px;
+    border: solid 1px palevioletred;
 }
 
 #box3 {
@@ -38,12 +42,12 @@ body {
 
 .left-column div {
     flex-grow: 1;
-    margin: 0 8px;
+    margin: 0 4px;
     border: solid 1px red;
 }
 
 .left-column div+div {
-    margin-top: 8px
+    margin-top: 4px
 }
 
 #Aisleway1 {
@@ -59,12 +63,12 @@ body {
 
 .middle-column div {
     flex-grow: 1;
-    margin: 0 8px;
+    margin: 0 4px;
     border: solid 1px red;
 }
 
 .middle-column div+div {
-    margin-top: 8px
+    margin-top: 4px
 }
 /*--------*/
 .right-half {
@@ -82,12 +86,12 @@ body {
 
 /*.bottom-right div {*/
 /*    flex-grow: 1;*/
-/*    margin: 0 8px;*/
+/*    margin: 0 4px;*/
 /*    border: solid 1px deeppink;*/
 /*}*/
 
 /*.bottom-right div+div {*/
-/*    margin-top: 8px*/
+/*    margin-top: 4px*/
 /*}*/
 .grid {
     display: grid;
@@ -106,12 +110,12 @@ body {
 /*--------*/
 .right-half div {
     flex-grow: 1;
-    margin: 0 8px;
+    margin: 0 4px;
     border: solid 1px cornflowerblue;
 }
 
 .right-half div+div {
-    margin-top: 8px
+    margin-top: 4px
 }
 /*--------*/
 .rects-3-and-4 {
@@ -122,11 +126,11 @@ body {
 
 .rects-3-and-4 div {
     flex-grow: 1;
-    margin: 0 8px;
+    margin: 0 4px;
     border: solid 1px greenyellow;
 }
 
 .rects-3-and-4 div+div {
-    margin-top: 8px
+    margin-top: 4px
 }
 
