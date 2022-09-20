@@ -1,8 +1,132 @@
-div {
-    border: 1px solid black;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left: 100px;
-    top: 100px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    margin: 2%;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.box-wrapper {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#box2 {
+    padding: 8px;
+    border: solid 1px blue
+}
+
+#box3 {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    border: solid 1px green
+}
+.left-column {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-column div {
+    flex-grow: 1;
+    margin: 0 8px;
+    border: solid 1px red;
+}
+
+.left-column div+div {
+    margin-top: 8px
+}
+
+#Aisleway1 {
+    flex-grow: 1;
+    border: solid 1px orange
+}
+
+.middle-column {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.middle-column div {
+    flex-grow: 1;
+    margin: 0 8px;
+    border: solid 1px red;
+}
+
+.middle-column div+div {
+    margin-top: 8px
+}
+/*--------*/
+.right-half {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/*--------*/
+/*.bottom-right {*/
+/*    flex-grow: 1;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.bottom-right div {*/
+/*    flex-grow: 1;*/
+/*    margin: 0 8px;*/
+/*    border: solid 1px deeppink;*/
+/*}*/
+
+/*.bottom-right div+div {*/
+/*    margin-top: 8px*/
+/*}*/
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* creates two columns, can also use 50% 50%, repeat(2, 1fr) or repeat(2, 50%), fr stands for fractions */
+}
+
+.grid > div {
+    padding: 20px;
+    border: 1px solid;
+}
+
+.rectangle {
+    grid-row: 1/3; /* spans two rows */
+}
+
+/*--------*/
+.right-half div {
+    flex-grow: 1;
+    margin: 0 8px;
+    border: solid 1px cornflowerblue;
+}
+
+.right-half div+div {
+    margin-top: 8px
+}
+/*--------*/
+.rects-3-and-4 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.rects-3-and-4 div {
+    flex-grow: 1;
+    margin: 0 8px;
+    border: solid 1px greenyellow;
+}
+
+.rects-3-and-4 div+div {
+    margin-top: 8px
+}
+
