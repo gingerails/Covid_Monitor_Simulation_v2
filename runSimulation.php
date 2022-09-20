@@ -1,24 +1,26 @@
 <?php
 include 'C:\Users\ginge\PhpstormProjects\monitorProject\createClasses.php';
-//function Classroom setClassrooms{
-//
-//}
-setClassrooms();
+
+startClass();
+
+function startClass(){
+    setClassrooms();
+}
+
+
 function setClassrooms(): void
 {
     $classroom_A = createClass();
-    echo(print_r($classroom_A->getStudentsArray()));
     $classroom_B = createClass();
-    echo(print_r($classroom_B->getStudentsArray()));
     $classroom_C = createClass();
+
+    echo(print_r($classroom_A->getStudentsArray()));
+    echo(print_r($classroom_B->getStudentsArray()));
     echo(print_r($classroom_C->getStudentsArray()));
 
-    return ;
 }
 
-function startClass(){
 
-}
 
 
 
