@@ -20,124 +20,198 @@
         }
     </script>
 
-<!--    <div id="test"></div>-->
-<!--    <link rel="stylesheet" type="text/css" href="/css/style.css">-->
-<!--    <script src="/js/moveStudents.js" type="text/javascript"></script>-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
-<!--    &lt;!&ndash; Tab links &ndash;&gt;-->
-<!--    <div class="tab">-->
-<!--        <button class="tablinks" onclick="openCity(event, 'London')">London</button>-->
-<!--        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>-->
-<!--        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
-<!--    </div>-->
+<div class="tab">
+    <button class="tablink" onclick="openPage('Class_A', this, 'red')"id="defaultOpen">Class A</button>
+    <button class="tablink" onclick="openPage('Class_B', this, 'green')">Class B</button>
+    <button class="tablink" onclick="openPage('Class_C', this, 'blue')">Class C</button>
+</div>
 
-<!--    <div id="London" class="tabcontent">-->
-<!--        <h3>London</h3>-->
-<!--        <p>London is the capital city of England.</p>-->
-<!--    </div>-->
+<div id="Class_A" class="tabcontent">
+    <h3>Class A</h3>
+    <div class="A_box-wrapper">
+        <div class="A_box-wrapper">
+            <div id="A_box3">
+                <div class="A_left-column">
+                    <div id="A_instructorBox">
+                        Room Entrance
+                    </div>
+                    <div id="A_StudentBox2">
+                        Student Rectangle #1
+                    </div>
+                    <div id="A_StudentBox5">
 
-<!--    <div id="Paris" class="tabcontent">-->
-<!--        <h3>Paris</h3>-->
-<!--        <p>Paris is the capital of France.</p>-->
-<!--    </div>-->
-
-<!--    <div id="Tokyo" class="tabcontent">-->
-<!--        <h3>Tokyo</h3>-->
-<!--        <p>Tokyo is the capital of Japan.</p>-->
-<!--    </div>-->
-
-<!--    <script>-->
-<!--        function openCity(evt, cityName) {-->
-<!--            var i, tabcontent, tablinks;-->
-<!--            tabcontent = document.getElementsByClassName("tabcontent");-->
-<!--            for (i = 0; i < tabcontent.length; i++) {-->
-<!--                tabcontent[i].style.display = "none";-->
-<!--            }-->
-<!--            tablinks = document.getElementsByClassName("tablinks");-->
-<!--            for (i = 0; i < tablinks.length; i++) {-->
-<!--                tablinks[i].className = tablinks[i].className.replace(" active", "");-->
-<!--            }-->
-<!--            document.getElementById(cityName).style.display = "block";-->
-<!--            evt.currentTarget.className += " active";-->
-<!--        }-->
-<!--    </script>-->
-
-
-    <button onclick=refreshData()> Oh god I hope this works</button>
-    <div id="content"/>
-<!--    <div class="box">Hi!</div>-->
-    <script src="/js/classrooms.js" type="text/javascript"></script>
-
-    <div class="box-wrapper">
-
-        <div id="box3">
-            <div class="left-column">
-                <div id="instructorBox">
-                    Room Entrance
+                    </div>
                 </div>
-                <div id="StudentBox2">
-                    Student Rectangle #1
+                <div id="A_Aisleway1">
+                    Aisleway
                 </div>
-                <div id="StudentBox5">
+                <div class="A_middle-column">
+                    <div id="A_box5">
+                        Box 5
+                    </div>
+                    <div id="A_box6">
+                        Box 6
+                    </div>
+                    <div id="A_box7">
+                        Box 7
+                    </div>
+                </div>
 
+                <div class="A_right-half">
+
+                    <div id="A_studentQuestionBox">
+                        Student Question Box
+                    </div>
+
+                    <div class="A_grid">
+                        <div class="A_rectangle">Rectangle</div>
+                        <div class="A_square square-1">Square 1</div>
+                        <div class="A_square square-2">Square 2</div>
+                    </div>
                 </div>
+
             </div>
-            <div id="Aisleway1">
-                Aisleway
-            </div>
-            <div class="middle-column">
-                <div id="box5">
-                    Box 5
-                </div>
-                <div id="box6">
-                    Box 6
-                </div>
-                <div id="box7">
-                    Box 7
-                </div>
-            </div>
-
-            <div class="right-half">
-
-                <div id="studentQuestionBox">
-                    Student Question Box
-                </div>
-
-                <div class="grid">
-                    <div class="rectangle">Aisleway</div>
-                    <div class="square square-1">StudentBox 3</div>
-                    <div class="square square-2">StudentBox 4</div>
-                </div>
-            </div>
-
         </div>
-        <div id="box2">
+        <div id="A_box2">
             Aisleway
         </div>
     </div>
+
+</div>
+
+<div id="Class_B" class="tabcontent">
+    <h3>Class B</h3>
+    <div class="B_box-wrapper">
+        <div class="B_box-wrapper">
+            <div id="B_box3">
+                <div class="B_left-column">
+                    <div id="B_instructorBox">
+                        Room Entrance
+                    </div>
+                    <div id="B_StudentBox2">
+                        Student Rectangle #1
+                    </div>
+                    <div id="B_StudentBox5">
+
+                    </div>
+                </div>
+                <div id="B_Aisleway1">
+                    Aisleway
+                </div>
+                <div class="B_middle-column">
+                    <div id="B_box5">
+                        Box 5
+                    </div>
+                    <div id="B_box6">
+                        Box 6
+                    </div>
+                    <div id="B_box7">
+                        Box 7
+                    </div>
+                </div>
+
+                <div class="B_right-half">
+
+                    <div id="B_studentQuestionBox">
+                        Student Question Box
+                    </div>
+
+                    <div class="B_grid">
+                        <div class="B_rectangle">Rectangle</div>
+                        <div class="B_square square-1">Square 1</div>
+                        <div class="B_square square-2">Square 2</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="B_box2">
+            Aisleway
+        </div>
+    </div>
+
+</div>
+
+
+<div id="Class_C" class="tabcontent">
+    <h3>Class C</h3>
+    <div class="C_box-wrapper">
+        <div class="C_box-wrapper">
+            <div id="C_box3">
+                <div class="C_left-column">
+                    <div id="C_instructorBox">
+                        Room Entrance
+                    </div>
+                    <div id="C_StudentBox2">
+                        Student Rectangle #1
+                    </div>
+                    <div id="C_StudentBox5">
+
+                    </div>
+                </div>
+                <div id="C_Aisleway1">
+                    Aisleway
+                </div>
+                <div class="C_middle-column">
+                    <div id="C_box5">
+                        Box 5
+                    </div>
+                    <div id="C_box6">
+                        Box 6
+                    </div>
+                    <div id="C_box7">
+                        Box 7
+                    </div>
+                </div>
+
+                <div class="C_right-half">
+
+                    <div id="C_studentQuestionBox">
+                        Student Question Box
+                    </div>
+
+                    <div class="C_grid">
+                        <div class="C_rectangle">Rectangle</div>
+                        <div class="C_square square-1">Square 1</div>
+                        <div class="C_square square-2">Square 2</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="C_box2">
+            Aisleway
+        </div>
+    </div>
+
+</div>
+
+
+    <script>
+        function openPage(pageName,elmnt,color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 
 
 
 
 </body>
 </html>
-
-
-<!--<div id="BackAisle">&ndash;&gt;-->
-    <!--            Box 1-->
-    <!--        </div>-->
-
-    <!--        <div class="middle-column">-->
-    <!--            <div id="InstructorBox">-->
-    <!--                Box 5-->
-    <!--            </div>-->
-    <!--            <div id="StudentBox2">-->
-    <!--                Box 6-->
-    <!--            </div>-->
-    <!--            <div id="StudentBox5">-->
-    <!--                Box 7-->
-    <!--            </div>-->
-    <!--        </div>

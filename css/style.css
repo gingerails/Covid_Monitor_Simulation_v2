@@ -5,132 +5,286 @@
 }
 
 body {
-    margin: 1%;
+    margin: 2%;
     justify-content: center;
     overflow: hidden;
 }
-/*.block {*/
-/*    border:1px solid #333;*/
-/*    margin-bottom:5px;*/
-/*}*/
 
-.box-wrapper {
-    height: 95vh;
-    width: 100%;
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: purple;
+    display: none;
+    padding: 2px 2px;
+    height: 100%;
+}
+
+/*Class A*/
+.A_box-wrapper {
+    height: 45vh;
+    width: 70%;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-#box2 {
-    padding: 10px;
-    border: solid 1px palevioletred;
+#A_box2 {
+    padding: 8px;
+    width: 70%;
+    border: solid 1px blue
 }
 
-#box3 {
+#A_box3 {
     padding: 10px;
     flex-grow: 1;
     display: flex;
     flex-direction: row;
     border: solid 1px green
 }
-.left-column {
+.A_left-column {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.left-column div {
+.A_left-column div {
     flex-grow: 1;
-    margin: 0 4px;
+    margin: 0 8px;
     border: solid 1px red;
 }
 
-.left-column div+div {
-    margin-top: 4px
+.A_left-column div+div {
+    margin-top: 8px
 }
 
-#Aisleway1 {
+#A_Aisleway1 {
     flex-grow: 1;
     border: solid 1px orange
 }
 
-.middle-column {
+.A_middle-column {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.middle-column div {
+.A_middle-column div {
     flex-grow: 1;
-    margin: 0 4px;
+    margin: 0 8px;
     border: solid 1px red;
 }
 
-.middle-column div+div {
-    margin-top: 4px
+.A_middle-column div+div {
+    margin-top: 8px
 }
 /*--------*/
-.right-half {
+.A_right-half {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-/*--------*/
-/*.bottom-right {*/
-/*    flex-grow: 1;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*}*/
-
-/*.bottom-right div {*/
-/*    flex-grow: 1;*/
-/*    margin: 0 4px;*/
-/*    border: solid 1px deeppink;*/
-/*}*/
-
-/*.bottom-right div+div {*/
-/*    margin-top: 4px*/
-/*}*/
-.grid {
+.A_grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* creates two columns, can also use 50% 50%, repeat(2, 1fr) or repeat(2, 50%), fr stands for fractions */
 }
 
-.grid > div {
+.A_grid > div {
     padding: 20px;
     border: 1px solid;
 }
 
-.rectangle {
+.A_rectangle {
     grid-row: 1/3; /* spans two rows */
 }
 
 /*--------*/
-.right-half div {
+.A_right-half div {
     flex-grow: 1;
-    margin: 0 4px;
+    margin: 0 8px;
     border: solid 1px cornflowerblue;
 }
 
-.right-half div+div {
-    margin-top: 4px
+.A_right-half div+div {
+    margin-top: 8px
 }
-/*--------*/
-.rects-3-and-4 {
+
+
+/*------------------------------------Class B----------------------*/
+.B_box-wrapper {
+    height: 45vh;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#B_box2 {
+    padding: 8px;
+    width: 70%;
+    border: solid 1px blue
+}
+
+#B_box3 {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    border: solid 1px green
+}
+.B_left-column {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.rects-3-and-4 div {
+.B_left-column div {
     flex-grow: 1;
-    margin: 0 4px;
-    border: solid 1px greenyellow;
+    margin: 0 8px;
+    border: solid 1px red;
 }
 
-.rects-3-and-4 div+div {
-    margin-top: 4px
+.B_left-column div+div {
+    margin-top: 8px
 }
 
+#B_Aisleway1 {
+    flex-grow: 1;
+    border: solid 1px orange
+}
+
+.B_middle-column {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.B_middle-column div {
+    flex-grow: 1;
+    margin: 0 8px;
+    border: solid 1px red;
+}
+
+.B_middle-column div+div {
+    margin-top: 8px
+}
+/*--------*/
+.B_right-half {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.B_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* creates two columns, can also use 50% 50%, repeat(2, 1fr) or repeat(2, 50%), fr stands for fractions */
+}
+
+.B_grid > div {
+    padding: 20px;
+    border: 1px solid;
+}
+
+.B_rectangle {
+    grid-row: 1/3; /* spans two rows */
+}
+
+/*--------*/
+.B_right-half div {
+    flex-grow: 1;
+    margin: 0 8px;
+    border: solid 1px cornflowerblue;
+}
+
+.B_right-half div+div {
+    margin-top: 8px
+}
+/*------------------------------------Class C----------------------*/
+
+.C_box-wrapper {
+    height: 45vh;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#C_box2 {
+    padding: 8px;
+    width: 70%;
+    border: solid 1px blue
+}
+
+#C_box3 {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    border: solid 1px green
+}
+.C_left-column {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.C_left-column div {
+    flex-grow: 1;
+    margin: 0 8px;
+    border: solid 1px red;
+}
+
+.C_left-column div+div {
+    margin-top: 8px
+}
+
+#C_Aisleway1 {
+    flex-grow: 1;
+    border: solid 1px orange
+}
+
+.C_middle-column {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.C_middle-column div {
+    flex-grow: 1;
+    margin: 0 8px;
+    border: solid 1px red;
+}
+
+.C_middle-column div+div {
+    margin-top: 8px
+}
+/*--------*/
+.C_right-half {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.C_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* creates two columns, can also use 50% 50%, repeat(2, 1fr) or repeat(2, 50%), fr stands for fractions */
+}
+
+.C_grid > div {
+    padding: 20px;
+    border: 1px solid;
+}
+
+.C_rectangle {
+    grid-row: 1/3; /* spans two rows */
+}
+
+/*--------*/
+.C_right-half div {
+    flex-grow: 1;
+    margin: 0 8px;
+    border: solid 1px cornflowerblue;
+}
+
+.C_right-half div+div {
+    margin-top: 8px
+}
