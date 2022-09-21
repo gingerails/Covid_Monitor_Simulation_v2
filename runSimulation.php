@@ -10,8 +10,9 @@ $classANum = $_GET["classANum"];
 $classBNum = $_GET["classBNum"];
 $classCNum = $_GET["classCNum"];
 
-$classesArray = (array) setClassrooms($classANum, $classBNum, $classCNum);
-//assignToBoxes($classesArray);
+$classesArray = setClassrooms($classANum, $classBNum, $classCNum);
+
+assignToBoxes($classesArray);
 
 
 /** Creates a classroom of n randomly masked students
@@ -35,24 +36,6 @@ function createClass(int $numStudents): Classroom
 
 
 
-//class ArrayOfStudents extends \ArrayObject {
-//    public function offsetSet($key, $val) {
-//        if ($val instanceof Student) {
-//            return parent::offsetSet($key, $val);
-//        }
-//        throw new \InvalidArgumentException('Value must be a Foo');
-//    }
-//}
-//class ArrayOfClassrooms extends \ArrayObject {
-//    public function offsetSet($key, $val) {
-//        if ($val instanceof Classroom) {
-//            return parent::offsetSet($key, $val);
-//        }
-//        throw new \InvalidArgumentException('Value must be a Foo');
-//    }
-//}
-
-
 /**
  * Create THREE classrooms. Return array of three classes.
  * @throws Exception
@@ -62,23 +45,23 @@ function setClassrooms($classANum, $classBNum, $classCNum): array
     $classroom_A = createClass($classANum);
     $classroom_B = createClass($classBNum);
     $classroom_C = createClass($classCNum);
-//    echo(print_r($classroom_A->getStudentsArray()));
+    //echo(print_r($classroom_A->getStudentsArray()));
 
     return array($classroom_A, $classroom_B, $classroom_C);
 }
 
 
 
-//function assignToBoxes($classesArray ){
-//
-//    foreach($classesArray->items as $item) {
-//        echo(print_r($item));
-//
-////        echo $classroom->rating."<br/>";
-////        echo $classroom->date."<br/>";
-//    }
-//    //$classesArray[1];
-//}
+function assignToBoxes($classesArray ){
+
+    foreach($classesArray as $item) {
+      //  echo(print_r($item));
+        echo(print_r($item->getStudentsArray()));
+
+//        $item->getArrayOfStudents
+    }
+    //$classesArray[1];
+}
 
 function handSanitizerSensor(){
 
