@@ -56,7 +56,12 @@ function assignToBoxes($classesArray ){
 
     foreach($classesArray as $item) {
       //  echo(print_r($item));
-        echo(print_r($item->getStudentsArray()));
+       // echo(print_r($item->getStudentsArray()));
+        $studentArray = $item->getStudentsArray();
+        foreach($studentArray as $arrayVal) {
+            $student = $arrayVal->getIsMasked();        // will check masks like this
+
+        }
 
 //        $item->getArrayOfStudents
     }
