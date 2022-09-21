@@ -7,8 +7,8 @@ class Classroom
     private $students_array;
 
     /**
-     * @param $desk
-     * @param string[] $students_array
+     * @param Desk $desk
+     * @param array $students_array
      */
     public function __construct(Desk $desk, array $students_array)
     {
@@ -33,7 +33,7 @@ class Classroom
     }
 
     /**
-     * @return string[]
+     * @return ArrayOfStudents
      */
     public function getStudentsArray(): array
     {
@@ -41,7 +41,7 @@ class Classroom
     }
 
     /**
-     * @param string[] $students_array
+     * @param array $students_array
      */
     public function setStudentsArray(array $students_array)
     {
