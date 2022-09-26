@@ -39,29 +39,15 @@
         Set number of Students for Class C: <input type="text" name="classCNum"><br>
         <input type="submit" name="submit" value="Submit">
 
-
     </form>
+    <button id="myButton" class="float-left submit-button" >Home</button>
 
+    <script type="text/javascript">
+        document.getElementById("myButton").onclick = function () {
+            location.href = "www.yoursite.com";
+        };
+    </script>
 
-
-<!--    <script>-->
-<!--        var up = document.getElementById('geeks');-->
-<!--        var down = document.getElementById('gfg');-->
-<!--        var select = document.getElementById("arr");-->
-<!--        var elmts = ["HTML", "CSS", "JS", "PHP", "jQuery"];-->
-<!--        up.innerHTML = "Click on the button to "-->
-<!--            + "perform the operation"+-->
-<!--            ".<br>Array - [" + elmts + "]";-->
-
-<!--        // Main function-->
-<!--        function GFG_Fun() {-->
-<!--            $.each(elmts, function(i, p) {-->
-<!--                $('#arr').append($('<option></option>')-->
-<!--                    .val(p).html(p));-->
-<!--            });-->
-<!--            down.innerHTML = "Elements Added";-->
-<!--        }-->
-<!--    </script>-->
 
     <div id="Class_A" class="tabcontent">
         <h3>Class A</h3>
@@ -222,7 +208,7 @@
 
     </div>
 
-
+<!--allows us to switch between tabs-->
     <script>
         function openPage(pageName, elmnt, color) {
             var i, tabcontent, tablinks;

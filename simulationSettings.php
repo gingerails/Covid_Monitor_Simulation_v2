@@ -1,14 +1,18 @@
 <?php
-
 include 'C:\Users\ginge\PhpstormProjects\monitorProject\Entity\Spray.php';
 include 'C:\Users\ginge\PhpstormProjects\monitorProject\Entity\Desk.php';
 include 'C:\Users\ginge\PhpstormProjects\monitorProject\Entity\Student.php';
 include 'C:\Users\ginge\PhpstormProjects\monitorProject\Entity\Classroom.php';
 
+// before running the simulation the user must set certain settings
 
-$classANum = $_GET["classANum"];
-$classBNum = $_GET["classBNum"];
-$classCNum = $_GET["classCNum"];
+$classANum = $_POST["classANum"];
+$classBNum = $_POST["classBNum"];
+$classCNum = $_POST["classCNum"];
+
+
+
+
 
 // functions all run here
 $classesArray = setClassrooms($classANum, $classBNum, $classCNum);
@@ -30,7 +34,7 @@ function createClass(int $numStudents): Classroom
         $randBool = (bool) random_int(0,1);   // student is randomly masked or unmasked
         $student = new Student($randBool);
         array_push($studentsArray, $student);   // add to array
-       // $studentsArray->append($student);
+        // $studentsArray->append($student);
     }
 
     return new Classroom($desk ,$studentsArray);
@@ -47,7 +51,9 @@ function setClassrooms($classANum, $classBNum, $classCNum): array
     $classroom_A = createClass($classANum);
     $classroom_B = createClass($classBNum);
     $classroom_C = createClass($classCNum);
-   // echo(print_r($classroom_A->getStudentsArray()));
+    $arrayStr =print_r($classroom_A->getStudentsArray());
+    // echo(print_r($classroom_A->getStudentsArray()));
+
 
     return array($classroom_A, $classroom_B, $classroom_C);
 }
@@ -57,12 +63,12 @@ function setClassrooms($classANum, $classBNum, $classCNum): array
 function assignToBoxes($classesArray ){
 
     foreach($classesArray as $item) {
-       // echo(print_r($item));
+        // echo(print_r($item));
         //echo(print_r($item->getStudentsArray()));
         $studentArray = $item->getStudentsArray();      // get all the students which will populate the dropdown menu
         foreach($studentArray as $arrayVal) {
             //$student = $arrayVal->getIsMasked();        // will check masks like this
-           // echo("Student")
+            // echo("Student")
         }
 
 //        $item->getArrayOfStudents
@@ -70,23 +76,4 @@ function assignToBoxes($classesArray ){
     //$classesArray[1];
 }
 
-function handSanitizerSensor(){
 
-}
-
-function maskSensor(){
-
-}
-function lysolBottleSensor(){
-
-}
-function socialDistancingSensor(){
-
-}
-
-function classRunner(){
-
-}
-
-
-//echo($classroom->getStudentsArray());
