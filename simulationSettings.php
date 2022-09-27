@@ -19,13 +19,18 @@ $classesArray = setClassrooms($classANum, $classBNum, $classCNum);
 
 //assignToBoxes($classesArray);
 
-//echo("here");
 runClass($classesArray);
+echo('simulator.html');
 
-function showStudents()
-{
-    return htmlentities('<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">');
-}
+//function showStudents()
+//{
+//    return htmlentities('<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">');
+//}
+
+//function show(){
+//    $my_var = file_get_contents('simulator.html');
+//   // echo($my_var);
+//}
 
 
 function runClass($classesArray){
@@ -33,7 +38,7 @@ function runClass($classesArray){
     $count = 0;
     foreach($classesArray as $class) {
         $count = $count + 1;
-        $classDetail = "*****Classroom $count Metrics*****: \n";
+        $classDetail = "*Classroom $count Metrics*: \n";
         fwrite($myfile, $classDetail);
         $studentArray = $class->getStudentsArray();      // get all the students which will populate the dropdown menu
         askTeacher($studentArray, $myfile);             // check which students go to question box
@@ -45,6 +50,7 @@ function runClass($classesArray){
         fwrite($myfile, $spacer);
     }
     fclose($myfile);
+    //show();
 }
 
 /**
@@ -61,17 +67,14 @@ function askTeacher($studentArray, $myfile){
 
         $random = rand(1, 10);
         if($random > 2){
-            echo($random);
+
         }
         else {      // student has a question
             $studentsWithQuestions = $studentsWithQuestions + 1;
-            echo(" Students w Questions ");
-            echo($studentsWithQuestions);
         }
     }
 
-    $questionsDetail = "Students with questions in Class  =  $studentsWithQuestions\n";
-    //echo($questionsDetail);
+    $questionsDetail = "Students with questions in Class  =  $studentsWithQuestions#\n";
     fwrite($myfile, $questionsDetail);
 }
 
@@ -93,7 +96,7 @@ function maskSensor($studentArray, $myfile)
             $studentsUnmasked = $studentsUnmasked + 1;
         }
     }
-    $questionsDetail = "Students unmasked  =  $studentsUnmasked\n";
+    $questionsDetail = "Students unmasked  =  $studentsUnmasked#\n";
     fwrite($myfile, $questionsDetail);
 }
 
@@ -109,14 +112,14 @@ function lysolClassBegin($studentArray, $myfile){
     for($i=1; $i <= count($studentArray); $i++) {
         $random = rand(1, 10);
         if($random > 3){        // 70% likely to use lysol at beginning of class
-            echo($random);
+
         }
         else {      // didnt use lysol
             $unreturnedBottle = $unreturnedBottle + 1;
         }
     }
-    $questionsDetail = "Lysol not used at beginning of class  =  $unreturnedBottle\n";
-    echo($questionsDetail);
+    $questionsDetail = "Lysol not used at beginning of class  =  $unreturnedBottle#\n";
+
     fwrite($myfile, $questionsDetail);
 }
 
@@ -132,14 +135,12 @@ function lysolClassEnd($studentArray, $myfile){
     for($i=1; $i <= count($studentArray); $i++) {
         $random = rand(1, 10);
         if($random > 6){        // 60% likely to use lysol at beginning of class
-            echo($random);
         }
         else {      // didnt use lysol
             $unreturnedBottle = $unreturnedBottle + 1;
         }
     }
-    $questionsDetail = "Lysol not used at end of class  =  $unreturnedBottle\n";
-    echo($questionsDetail);
+    $questionsDetail = "Lysol not used at end of class  =  $unreturnedBottle#\n";
     fwrite($myfile, $questionsDetail);
 }
 
@@ -157,15 +158,14 @@ function handSanitizerSensor($studentArray, $myfile)
 
         $random = rand(1, 10);
         if($random > 5){
-            echo($random);
             $sanitized = $sanitized + 1;
         }
         else {      // Sanitizer did not dispense
             $unsanitized = $unsanitized + 1;
         }
     }
-    $sanitizedDetail = "Student leaves room after hand sanitizer dispenses =  $sanitized\n";
-    $unsanitizedDetail = "Student leaves room without sanitizer dispensing =  $unsanitized\n";
+    $sanitizedDetail = "Student leaves room after hand sanitizer dispenses =  $sanitized#\n";
+    $unsanitizedDetail = "Student leaves room without sanitizer dispensing =  $unsanitized#\n";
 
     fwrite($myfile, $sanitizedDetail);
     fwrite($myfile, $unsanitizedDetail);
@@ -179,17 +179,16 @@ function handSanitizerSensor($studentArray, $myfile)
 //
 //        $random = rand(1, 10);
 //        if($random > 2){
-//            echo($random);
+
 //        }
 //        else {      // student has a question
 //            $studentsWithQuestions = $studentsWithQuestions + 1;
-//            echo(" Students w Questions ");
-//            echo($studentsWithQuestions);
+
 //        }
 //    }
 //
 //    $questionsDetail = "Students with questions in Class  =  $studentsWithQuestions\n";
-//    echo($questionsDetail);
+
 //    fwrite($myfile, $questionsDetail);
 
 
@@ -232,7 +231,7 @@ function setClassrooms($classANum, $classBNum, $classCNum): array
     $classroom_B = createClass($classBNum);
     $classroom_C = createClass($classCNum);
    // $arrayStr =print_r($classroom_A->getStudentsArray());
-    // echo(print_r($classroom_A->getStudentsArray()));
+
 
     return array($classroom_A, $classroom_B, $classroom_C);
 }
@@ -240,23 +239,23 @@ function setClassrooms($classANum, $classBNum, $classCNum): array
 
 
 
-function assignToBoxes($classesArray ){
-
-    foreach($classesArray as $item) {
-        // echo(print_r($item));
-        //echo(print_r($item->getStudentsArray()));
-        $studentArray = $item->getStudentsArray();      // get all the students which will populate the dropdown menu
-        foreach($studentArray as $arrayVal) {
-            if($arrayVal->getIsMasked()){
-
-            }
-//            $student = $arrayVal->getIsMasked();        // will check masks like this
-            // echo("Student");
-        }
-
-//        $item->getArrayOfStudents
-    }
-    //$classesArray[1];
-}
+//function assignToBoxes($classesArray ){
+//
+//    foreach($classesArray as $item) {
+//        // echo(print_r($item));
+//        //echo(print_r($item->getStudentsArray()));
+//        $studentArray = $item->getStudentsArray();      // get all the students which will populate the dropdown menu
+//        foreach($studentArray as $arrayVal) {
+//            if($arrayVal->getIsMasked()){
+//
+//            }
+////            $student = $arrayVal->getIsMasked();        // will check masks like this
+//            // echo("Student");
+//        }
+//
+////        $item->getArrayOfStudents
+//    }
+//    //$classesArray[1];
+//}
 
 
