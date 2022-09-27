@@ -4,6 +4,7 @@ include 'C:\Users\ginge\PhpstormProjects\monitorProject\Entity\Desk.php';
 include 'C:\Users\ginge\PhpstormProjects\monitorProject\Entity\Student.php';
 include 'C:\Users\ginge\PhpstormProjects\monitorProject\Entity\Classroom.php';
 include 'E:\Downloads\Docker How To Simple Web Server\Docker How To Simple Web Server\5. basic create web Docker container w all data from dockerfile\web files\index.html';
+include 'E:\Downloads\Docker How To Simple Web Server\Docker How To Simple Web Server\5. basic create web Docker container w all data from dockerfile\web files\testfile.txt';
 //include_once 'runSimulation.php';
 // before running the simulation the user must set certain settings
 
@@ -11,15 +12,20 @@ $classANum = $_POST["classANum"];
 $classBNum = $_POST["classBNum"];
 $classCNum = $_POST["classCNum"];
 
-
+//showStudents();
 
 // functions all run here
 $classesArray = setClassrooms($classANum, $classBNum, $classCNum);
 
-assignToBoxes($classesArray);
+//assignToBoxes($classesArray);
 
-echo("here");
+//echo("here");
 runClass($classesArray);
+
+function showStudents()
+{
+    return htmlentities('<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">');
+}
 
 
 function runClass($classesArray){
@@ -27,34 +33,168 @@ function runClass($classesArray){
     $count = 0;
     foreach($classesArray as $class) {
         $count = $count + 1;
-        $classDetail = "Classroom $count\n";
+        $classDetail = "*****Classroom $count Metrics*****: \n";
         fwrite($myfile, $classDetail);
         $studentArray = $class->getStudentsArray();      // get all the students which will populate the dropdown menu
-        askTeacher($studentArray, $myfile);
-
+        askTeacher($studentArray, $myfile);             // check which students go to question box
+        maskSensor($studentArray, $myfile);
+        lysolClassBegin($studentArray, $myfile);
+        lysolClassEnd($studentArray, $myfile);
+        handSanitizerSensor($studentArray, $myfile);
+        $spacer = "\n \n";
+        fwrite($myfile, $spacer);
     }
     fclose($myfile);
-
 }
 
+/**
+ * Randomizes how many students ask the teacher a question and records it in testfile.txt
+ * 20% likely.
+ * @param $studentArray
+ * @param $myfile
+ * @return void
+ */
 function askTeacher($studentArray, $myfile){
     // probability of students asking the teacher a question is 20%
     $studentsWithQuestions = 0;
-    foreach($studentArray as $student) {
-        echo(print_r($studentArray));
-        $x = rand(1, 10);
-        if($x > 2){
-            return 2;
+    for($x = 1; $x <= count($studentArray); $x++) {
+
+        $random = rand(1, 10);
+        if($random > 2){
+            echo($random);
         }
-        else {
+        else {      // student has a question
             $studentsWithQuestions = $studentsWithQuestions + 1;
-            return 1;
+            echo(" Students w Questions ");
+            echo($studentsWithQuestions);
         }
     }
-    $questionsDetail = "Students with questions =  $studentsWithQuestions\n";
-    fwrite($myfile, $questionsDetail);
 
+    $questionsDetail = "Students with questions in Class  =  $studentsWithQuestions\n";
+    //echo($questionsDetail);
+    fwrite($myfile, $questionsDetail);
 }
+
+
+/**
+ * Checks students with masks and records alarms/violation in txt file. Masks are already
+ * predetermined in createClass();
+ * @param $studentArray
+ * @param $myfile
+ * @return void
+ */
+function maskSensor($studentArray, $myfile)
+{
+    // probability of students asking the teacher a question is 20%
+    $studentsUnmasked = 0;
+    foreach ($studentArray as $student) {
+       // $student = $student->getIsMasked();
+        if(!$student->getIsMasked()){
+            $studentsUnmasked = $studentsUnmasked + 1;
+        }
+    }
+    $questionsDetail = "Students unmasked  =  $studentsUnmasked\n";
+    fwrite($myfile, $questionsDetail);
+}
+
+
+/**
+ * Checks for students using lysol at the beginning of class. 70% likely
+ * @param $studentArray
+ * @param $myfile
+ * @return void
+ */
+function lysolClassBegin($studentArray, $myfile){
+    $unreturnedBottle = 0;
+    for($i=1; $i <= count($studentArray); $i++) {
+        $random = rand(1, 10);
+        if($random > 3){        // 70% likely to use lysol at beginning of class
+            echo($random);
+        }
+        else {      // didnt use lysol
+            $unreturnedBottle = $unreturnedBottle + 1;
+        }
+    }
+    $questionsDetail = "Lysol not used at beginning of class  =  $unreturnedBottle\n";
+    echo($questionsDetail);
+    fwrite($myfile, $questionsDetail);
+}
+
+
+/**
+ * Checks for students using lysol at the beginning of class. 40% likely
+ * @param $studentArray
+ * @param $myfile
+ * @return void
+ */
+function lysolClassEnd($studentArray, $myfile){
+    $unreturnedBottle = 0;
+    for($i=1; $i <= count($studentArray); $i++) {
+        $random = rand(1, 10);
+        if($random > 6){        // 60% likely to use lysol at beginning of class
+            echo($random);
+        }
+        else {      // didnt use lysol
+            $unreturnedBottle = $unreturnedBottle + 1;
+        }
+    }
+    $questionsDetail = "Lysol not used at end of class  =  $unreturnedBottle\n";
+    echo($questionsDetail);
+    fwrite($myfile, $questionsDetail);
+}
+
+/**
+ * 50% chance of student entering or leaving room without using hand sanitizer
+ * @param $studentArray
+ * @param $myfile
+ * @return void
+ */
+function handSanitizerSensor($studentArray, $myfile)
+{
+    $unsanitized = 0;
+    $sanitized = 0;
+    for($x = 1; $x <= count($studentArray); $x++) {
+
+        $random = rand(1, 10);
+        if($random > 5){
+            echo($random);
+            $sanitized = $sanitized + 1;
+        }
+        else {      // Sanitizer did not dispense
+            $unsanitized = $unsanitized + 1;
+        }
+    }
+    $sanitizedDetail = "Student leaves room after hand sanitizer dispenses =  $sanitized\n";
+    $unsanitizedDetail = "Student leaves room without sanitizer dispensing =  $unsanitized\n";
+
+    fwrite($myfile, $sanitizedDetail);
+    fwrite($myfile, $unsanitizedDetail);
+}
+
+//    foreach($studentArray as $arrayVal) {
+//$student = $arrayVal->getIsMasked();
+
+//    for($x = 1; $x <= count($studentArray); $x++) {
+//        $studentArray[$x]
+//
+//        $random = rand(1, 10);
+//        if($random > 2){
+//            echo($random);
+//        }
+//        else {      // student has a question
+//            $studentsWithQuestions = $studentsWithQuestions + 1;
+//            echo(" Students w Questions ");
+//            echo($studentsWithQuestions);
+//        }
+//    }
+//
+//    $questionsDetail = "Students with questions in Class  =  $studentsWithQuestions\n";
+//    echo($questionsDetail);
+//    fwrite($myfile, $questionsDetail);
+
+
+
+
 
 
 // foreach($studentArray as $arrayVal) {
@@ -69,7 +209,8 @@ function createClass(int $numStudents): Classroom
     $thisDesk = new Desk($thisSpray);
 
     $studentsArray=array();
-    for($x = 0; $x <= $numStudents; $x++){
+
+    for($x = 1; $x <= $numStudents; $x++){
         $randBool = (bool) random_int(0,1);   // student is randomly masked or unmasked
         $student = new Student($randBool);
         array_push($studentsArray, $student);   // add to array
