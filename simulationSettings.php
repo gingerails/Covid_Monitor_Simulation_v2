@@ -11,6 +11,9 @@ include 'E:\Downloads\Docker How To Simple Web Server\Docker How To Simple Web S
 $classANum = $_POST["classANum"];
 $classBNum = $_POST["classBNum"];
 $classCNum = $_POST["classCNum"];
+$maskSensor = $_POST["maskSensor"];
+$lysolSensor = $_POST["lysolSensor"];
+$handSanSensor = $_POST["HandSanSensor"];
 
 //showStudents();
 
@@ -19,7 +22,7 @@ $classesArray = setClassrooms($classANum, $classBNum, $classCNum);
 
 //assignToBoxes($classesArray);
 
-runClass($classesArray);
+runClass($classesArray, $maskSensor,  $lysolSensor, $handSanSensor);
 echo('simulator.html');
 
 //function showStudents()
@@ -33,7 +36,7 @@ echo('simulator.html');
 //}
 
 
-function runClass($classesArray){
+function runClass($classesArray, $maskSensor,  $lysolSensor, $handSanSensor){
     $myfile = fopen("testfile.txt", "w");
     $count = 0;
     foreach($classesArray as $class) {
@@ -41,11 +44,26 @@ function runClass($classesArray){
         $classDetail = "*Classroom $count Metrics*: \n";
         fwrite($myfile, $classDetail);
         $studentArray = $class->getStudentsArray();      // get all the students which will populate the dropdown menu
+
+
         askTeacher($studentArray, $myfile);             // check which students go to question box
-        maskSensor($studentArray, $myfile);
-        lysolClassBegin($studentArray, $myfile);
-        lysolClassEnd($studentArray, $myfile);
-        handSanitizerSensor($studentArray, $myfile);
+//        maskSensor($studentArray, $myfile);
+//        lysolClassBegin($studentArray, $myfile);
+//        lysolClassEnd($studentArray, $myfile);
+//        handSanitizerSensor($studentArray, $myfile);
+
+        if(isset($maskSensor)){
+            maskSensor($studentArray, $myfile);
+        }
+        if(isset($lysolSensor)){
+            lysolClassBegin($studentArray, $myfile);
+            lysolClassEnd($studentArray, $myfile);
+        }
+        if(isset($handSanSensor)){
+            handSanitizerSensor($studentArray, $myfile);
+        }
+
+
         $spacer = "\n \n";
         fwrite($myfile, $spacer);
     }
@@ -166,31 +184,10 @@ function handSanitizerSensor($studentArray, $myfile)
     }
     $sanitizedDetail = "Student leaves room after hand sanitizer dispenses =  $sanitized#\n";
     $unsanitizedDetail = "Student leaves room without sanitizer dispensing =  $unsanitized#\n";
-
+    print($sanitizedDetail);
     fwrite($myfile, $sanitizedDetail);
     fwrite($myfile, $unsanitizedDetail);
 }
-
-//    foreach($studentArray as $arrayVal) {
-//$student = $arrayVal->getIsMasked();
-
-//    for($x = 1; $x <= count($studentArray); $x++) {
-//        $studentArray[$x]
-//
-//        $random = rand(1, 10);
-//        if($random > 2){
-
-//        }
-//        else {      // student has a question
-//            $studentsWithQuestions = $studentsWithQuestions + 1;
-
-//        }
-//    }
-//
-//    $questionsDetail = "Students with questions in Class  =  $studentsWithQuestions\n";
-
-//    fwrite($myfile, $questionsDetail);
-
 
 
 
@@ -235,27 +232,5 @@ function setClassrooms($classANum, $classBNum, $classCNum): array
 
     return array($classroom_A, $classroom_B, $classroom_C);
 }
-
-
-
-
-//function assignToBoxes($classesArray ){
-//
-//    foreach($classesArray as $item) {
-//        // echo(print_r($item));
-//        //echo(print_r($item->getStudentsArray()));
-//        $studentArray = $item->getStudentsArray();      // get all the students which will populate the dropdown menu
-//        foreach($studentArray as $arrayVal) {
-//            if($arrayVal->getIsMasked()){
-//
-//            }
-////            $student = $arrayVal->getIsMasked();        // will check masks like this
-//            // echo("Student");
-//        }
-//
-////        $item->getArrayOfStudents
-//    }
-//    //$classesArray[1];
-//}
 
 

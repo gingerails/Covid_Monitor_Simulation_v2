@@ -1,40 +1,35 @@
 
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <title>"CS453 Covid Monitoring Simulator"</title>
-    <script>
-        "use strict";
-        function submitForm(oFormElement)
-        {
-            var xhr = new XMLHttpRequest();
-            // xhr.onload = function(){ alert(xhr.responseText); }
-            xhr.open(oFormElement.method, oFormElement.getAttribute("action"));
-            xhr.send(new FormData(oFormElement));
-            return false;
-        }
-    </script>
-</head>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns="http://www.w3.org/1999/html">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>"CS453 Covid Monitoring Simulator"</title>-->
+<!--    <script>-->
+<!--        "use strict";-->
+<!--        function submitForm(oFormElement)-->
+<!--        {-->
+<!--            var xhr = new XMLHttpRequest();-->
+<!--            // xhr.onload = function(){ alert(xhr.responseText); }-->
+<!--            xhr.open(oFormElement.method, oFormElement.getAttribute("action"));-->
+<!--            xhr.send(new FormData(oFormElement));-->
+<!--            return false;-->
+<!--        }-->
+<!--    </script>-->
+<!--</head>-->
 
 
-<link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
-<body>
+<!--<link rel="stylesheet" type="text/css" href="/css/style.css">-->
+<!--</head>-->
+<!--<body>-->
 <div id="container">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!--    onsubmit="return submitForm(this);-->
     <div class="tab">
         <button class="tablink" onclick="openPage('Class_A', this, 'red')" id="defaultOpen">Class A</button>
         <button class="tablink" onclick="openPage('Class_B', this, 'green')">Class B</button>
         <button class="tablink" onclick="openPage('Class_C', this, 'blue')">Class C</button>
     </div>
-    <!--    <script>-->
 
-    <!--    </script>-->
-    <!--    <hr />-->
-    <!--      Assign students to desks (This assumes the user will assign ALL students to a desk.):-->
-    <!--      <div id="studentBoxSettings"></div>-->
-    <!--    <hr />-->
 
     <div id="Class_A" class="tabcontent">
         <h3>Class A</h3>
@@ -200,17 +195,6 @@
 
     </div>
 
-    <section id="settingsSection">
-        <script>
-           // document.getElementById('student1').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-            //document.getElementById('student2').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-            //document.getElementById('student3').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-            //document.getElementById('student4').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-            //document.getElementById('student5').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-        </script>
-        <!--      <input type="submit" form="buttonForm" value="Submit">Submit</input>-->
-    </section>
-
     <script>
         var client = new XMLHttpRequest();
         var responseText = " ";
@@ -243,8 +227,6 @@
             var classC_lysolEnd =myArray[15].slice(-1);
             var classC_sanitized =myArray[16].slice(-1);
             var classC_Unsanitized =myArray[17].slice(-1);
-          // var classC_maskedStudents =;
-            alert(classA_maskedStudents);
 
             // draws stick figure based on masked or unmasked
             if(classA_maskedStudents < 5){
@@ -293,6 +275,6 @@
 </div>
 
 
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
 

@@ -1,27 +1,15 @@
 *Classroom 1 Metrics*: 
-Students with questions in Class  =  2#
-Students unmasked  =  3#
-Lysol not used at beginning of class  =  1#
-Lysol not used at end of class  =  1#
-Student leaves room after hand sanitizer dispenses =  3#
-Student leaves room without sanitizer dispensing =  2#
+Students with questions in Class  =  1#
+Students unmasked  =  4#
 
  
 *Classroom 2 Metrics*: 
 Students with questions in Class  =  2#
-Students unmasked  =  2#
-Lysol not used at beginning of class  =  4#
-Lysol not used at end of class  =  5#
-Student leaves room after hand sanitizer dispenses =  0#
-Student leaves room without sanitizer dispensing =  5#
+Students unmasked  =  3#
 
  
 *Classroom 3 Metrics*: 
-Students with questions in Class  =  0#
-Students unmasked  =  3#
-Lysol not used at beginning of class  =  0#
-Lysol not used at end of class  =  4#
-Student leaves room after hand sanitizer dispenses =  2#
-Student leaves room without sanitizer dispensing =  3#
+Students with questions in Class  =  1#
+Students unmasked  =  2#
 
  

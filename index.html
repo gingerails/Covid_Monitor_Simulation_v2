@@ -11,7 +11,13 @@
         var xhr = new XMLHttpRequest();
          // xhr.onload = function(){ alert(xhr.responseText); }
         xhr.open(oFormElement.method, oFormElement.getAttribute("action"), true);
+        xhr.onreadystatechange = function () {
+          if (request.readyState == 4)
+            makeDiff(oFormElement);
+        }
         xhr.send(new FormData(oFormElement));
+        // document.getElementById("container").innerHTML =
+        //         location.href = "simulator.html";
         return false;
       }
     </script>
@@ -34,8 +40,20 @@
         Set number of Students for Class A: <input type="text" name="classANum" id="classANum"><br>
         Set number of Students for Class B: <input type="text" name="classBNum" id="classBNum"><br>
         Set number of Students for Class C: <input type="text" name="classCNum" id="classCNum"><br>
+
+
+        <input type="checkbox" id="maskSensor" name="maskSensor" value="Mask Sensor">
+        <label for="maskSensor">Mask worn</label><br>
+
+        <input type="checkbox" id="lysolSensor" name="lysolSensor" value="Lysol Sensor">
+        <label for="lysolSensor">Lysol Sensor</label><br>
+
+        <input type="checkbox" id="HandSanSensor" name="HandSanSensor" value="Hand Sanitizer Sensor">
+        <label for="HandSanSensor">Hand Sanitizing Sensor</label><br>
+
         <input type = "submit" name="numButton" form="buttonForm" value="Submit">
       </form>
+
     </section>
 
 <!--    <hr />-->
@@ -233,15 +251,6 @@
       document.getElementById("container").innerHTML =
         location.href = "simulator.html";
       }
-      //document.getElementById('container').innerHTML = 'woahhh';
-
-     // document.getElementById("container").innerHTML = "hehehhe";
-     // document.getElementById('student1').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-    //  document.getElementById('student2').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-     // document.getElementById('student3').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-      //document.getElementById('student4').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-      //document.getElementById('student5').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-
 
   </script>
 
