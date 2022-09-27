@@ -5,16 +5,12 @@
   <meta charset="UTF-8">
   <title>"CS453 Covid Monitoring Simulator"</title>
     <script>
-      // function setDesks(){
-      //   var section = document.getElementById("settingsSection")
-      //   section.innerHTML = "";
-      // }
       "use strict";
       function submitForm(oFormElement)
       {
         var xhr = new XMLHttpRequest();
-         xhr.onload = function(){ alert(xhr.responseText); }
-        xhr.open(oFormElement.method, oFormElement.getAttribute("action"));
+         // xhr.onload = function(){ alert(xhr.responseText); }
+        xhr.open(oFormElement.method, oFormElement.getAttribute("action"), true);
         xhr.send(new FormData(oFormElement));
         return false;
       }
@@ -33,37 +29,15 @@
       <button class="tablink" onclick="openPage('Class_C', this, 'blue')">Class C</button>
     </div>
     <section id="settingsSection">
-      <form action="simulationSettings.php" method="post" id="buttonForm" >
+      <form action="simulationSettings.php" method="post" id="buttonForm" onsubmit='submitForm(this);' >
         Number of students MUST BE 5 or less. This program assumes correct user input. <br>
         Set number of Students for Class A: <input type="text" name="classANum" id="classANum"><br>
         Set number of Students for Class B: <input type="text" name="classBNum" id="classBNum"><br>
         Set number of Students for Class C: <input type="text" name="classCNum" id="classCNum"><br>
-<!--        <input type="submit" name="submit" value="Submit" formtarget="_blank">-->
         <input type = "submit" name="numButton" form="buttonForm" value="Submit">
       </form>
-<!--      <input type="submit" form="buttonForm" value="Submit">Submit</input>-->
     </section>
 
-
-
-    <script>
-        // var classAVal = document.getElementsByClassName("classANum");
-        // print(classAVal);
-        document.getElementById('buttonForm').onsubmit = function() {
-
-          document.getElementById('student1').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-          document.getElementById('student2').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-          document.getElementById('student3').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-          document.getElementById('student4').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-          document.getElementById('student5').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
-        }
-
-        //return submitForm(this);}
-    </script>
-
-<!--    <script>-->
-
-<!--    </script>-->
 <!--    <hr />-->
 <!--      Assign students to desks (This assumes the user will assign ALL students to a desk.):-->
 <!--      <div id="studentBoxSettings"></div>-->
@@ -255,75 +229,21 @@
       </script>
     </div>
 
+  <script>
+    function makeDiff(){
+      document.getElementById('student1').innerHTML = 'woahhh';
+     // document.getElementById("container").innerHTML = "hehehhe";
+     // document.getElementById('student1').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+    //  document.getElementById('student2').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+     // document.getElementById('student3').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+      //document.getElementById('student4').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+      //document.getElementById('student5').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+
+    }
+
+  </script>
+
 
 </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-<!--<button id="myButton" class="float-left submit-button" >Home</button>-->
-
-<!--<script type="text/javascript">-->
-<!--  document.getElementById("submit").onclick = function () {-->
-<!--    location.href = "www.yoursite.com";-->
-<!--  };-->
-<!--</script>-->
-
-
-<!--    <script>-->
-<!--        var up = document.getElementById('geeks');-->
-<!--        var down = document.getElementById('gfg');-->
-<!--        var select = document.getElementById("arr");-->
-<!--        var elmts = ["HTML", "CSS", "JS", "PHP", "jQuery"];-->
-<!--        up.innerHTML = "Click on the button to "-->
-<!--            + "perform the operation"+-->
-<!--            ".<br>Array - [" + elmts + "]";-->
-
-<!--        // Main function-->
-<!--        function GFG_Fun() {-->
-<!--            $.each(elmts, function(i, p) {-->
-<!--                $('#arr').append($('<option></option>')-->
-<!--                    .val(p).html(p));-->
-<!--            });-->
-<!--            down.innerHTML = "Elements Added";-->
-<!--        }-->
-<!--    </script>-->
-
-
-<!--      <script type="text/javascript">-->
-<!--        // AJAX Request-->
-<!--        //   function refreshData() {-->
-<!--        //       var display = document.getElementById("content");-->
-<!--        //       var xmlhttp = new XMLHttpRequest();-->
-<!--        //       xmlhttp.open("GET", "simulationSettings.php");-->
-<!--        //       xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");-->
-<!--        //       xmlhttp.send();-->
-<!--        //       xmlhttp.onreadystatechange = function () {-->
-<!--        //           if (this.readyState === 4 && this.status === 200) {-->
-<!--        //               display.innerHTML = this.responseText;-->
-<!--        //           } else {-->
-<!--        //               display.innerHTML = "Error!";-->
-<!--        //           }-->
-<!--        //-->
-<!--        //       }-->
-<!--        //   }-->
-
-<!--        function loadXMLDoc() {-->
-<!--          var xhttp = new XMLHttpRequest();-->
-<!--          xhttp.onreadystatechange = function() {-->
-<!--            if (this.readyState == 4 && this.status == 200) {-->
-<!--              document.getElementById("tab").innerHTML =-->
-<!--                      this.responseText;-->
-<!--            }-->
-<!--          };-->
-<!--          xhttp.open("GET", "simulationSettings.php", true);-->
-<!--          xhttp.send();-->
-<!--        }-->
-<!--      </script>-->

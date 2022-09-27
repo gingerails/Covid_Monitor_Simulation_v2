@@ -1,53 +1,56 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>"CS453 Covid Monitoring Simulator"</title>
-<!--    <script type="text/javascript">-->
-<!--        function refreshData() {-->
-<!--            var display = document.getElementById("content");-->
-<!--            var xmlhttp = new XMLHttpRequest();-->
-<!--            xmlhttp.open("GET", "runSimulation.php");-->
-<!--            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");-->
-<!--            xmlhttp.send();-->
-<!--            xmlhttp.onreadystatechange = function () {-->
-<!--                if (this.readyState === 4 && this.status === 200) {-->
-<!--                    display.innerHTML = this.responseText;-->
-<!--                } else {-->
-<!--                    display.innerHTML = "Loading...";-->
-<!--                }-->
+    <script>
+        "use strict";
+        function submitForm(oFormElement)
+        {
+            var xhr = new XMLHttpRequest();
+            // xhr.onload = function(){ alert(xhr.responseText); }
+            xhr.open(oFormElement.method, oFormElement.getAttribute("action"));
+            xhr.send(new FormData(oFormElement));
+            return false;
+        }
+    </script>
+</head>
 
-<!--            }-->
-<!--        }-->
-<!--    </script>-->
 
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-
+<div id="container">
+    <!--    onsubmit="return submitForm(this);-->
     <div class="tab">
         <button class="tablink" onclick="openPage('Class_A', this, 'red')" id="defaultOpen">Class A</button>
         <button class="tablink" onclick="openPage('Class_B', this, 'green')">Class B</button>
         <button class="tablink" onclick="openPage('Class_C', this, 'blue')">Class C</button>
     </div>
+    <section id="settingsSection">
+        <script>
+            document.getElementById('student1').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+            document.getElementById('student2').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+            document.getElementById('student3').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+            document.getElementById('student4').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+            document.getElementById('student5').innerHTML = '<img src="Simple_Stick_Figure.svg.png" alt="StudentStickman" width="20" height="60">';
+
+        </script>
+        <!--      <input type="submit" form="buttonForm" value="Submit">Submit</input>-->
+    </section>
 
 
-    <form action="runSimulation.php" method="get">
-        Number of students MUST BE 5 or less. This program assumes correct user input. <br>
-        Set number of Students for Class A: <input type="text" name="classANum"><br>
-        Set number of Students for Class B: <input type="text" name="classBNum"><br>
-        Set number of Students for Class C: <input type="text" name="classCNum"><br>
-        <input type="submit" name="submit" value="Submit">
 
-    </form>
-    <button id="myButton" class="float-left submit-button" >Home</button>
 
-    <script type="text/javascript">
-        document.getElementById("myButton").onclick = function () {
-            location.href = "www.yoursite.com";
-        };
-    </script>
 
+    <!--    <script>-->
+
+    <!--    </script>-->
+    <!--    <hr />-->
+    <!--      Assign students to desks (This assumes the user will assign ALL students to a desk.):-->
+    <!--      <div id="studentBoxSettings"></div>-->
+    <!--    <hr />-->
 
     <div id="Class_A" class="tabcontent">
         <h3>Class A</h3>
@@ -60,8 +63,10 @@
                         </div>
                         <div id="A_StudentBox2">
                             Student Box #1
+                            <div id="student1"></div>
                         </div>
                         <div id="A_StudentBox5">
+
                         </div>
                     </div>
                     <div id="A_Aisleway1">
@@ -72,23 +77,27 @@
                             Box 5
                         </div>
                         <div id="A_box6">
-                            Box 6
+                            Student Box 2
+                            <div id="student2"></div>
                         </div>
                         <div id="A_box7">
-                            Box 7
+                            Student Box 5
+                            <div id="student5"></div>
                         </div>
                     </div>
-
                     <div class="A_right-half">
-
                         <div id="A_studentQuestionBox">
                             Student Question Box
                         </div>
-
                         <div class="A_grid">
-                            <div class="A_rectangle">Rectangle</div>
-                            <div class="A_square square-1">Square 1</div>
-                            <div class="A_square square-2">Square 2</div>
+                            <div class="A_rectangle">Aisleway</div>
+                            <div class="A_square square-1">
+                                Student Box 3
+                                <div id="student3"></div>
+                            </div>
+                            <div class="A_square square-2">
+                                Student Box 4
+                                <div id="student4"></div></div>
                         </div>
                     </div>
 
@@ -208,7 +217,7 @@
 
     </div>
 
-<!--allows us to switch between tabs-->
+    <!--allows us to switch between tabs-->
     <script>
         function openPage(pageName, elmnt, color) {
             var i, tabcontent, tablinks;
@@ -227,7 +236,9 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+</div>
 
 
 </body>
 </html>
+
